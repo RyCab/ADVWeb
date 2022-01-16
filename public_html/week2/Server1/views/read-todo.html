@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container"></div>
+    <script src="app.js"></script>
+</body>
+</html>
+<script>
+    var url = "http://localhost:3000/todo.json"
+    
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            let html = '';
+            console.log(data);
+            let jsonData = JSON.stringify(data);
+
+            let output = document.getElementsByClassName('container');
+            output.textContent = jsonData;
+
+            data.forEach(data => {
+                let htmlSeg = `<div class="user">
+                    <h2>Completed: ${data.completed}</h2>
+                    <h2>ID: ${data.id}</h2>
+                    <h2>Title: ${data.title}</h2>
+                    <h2>UserID: ${data.userId}</h2>
+                    <br />
+                </div>`;
+                console.log(htmlSeg);
+                html += htmlSeg;
+            });
+
+            let display = document.querySelector('.container');
+            display.innerHTML = html;
+        })
+        .catch(err => console.log(err))
+
+        
+</script>
