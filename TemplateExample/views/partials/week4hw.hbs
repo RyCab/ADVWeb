@@ -1,0 +1,31 @@
+
+<form method="post" action="/TemplateExample/index.html">
+    <label for="numbers">Select a number!</label>
+    
+    <select name="numbers" id="numberSelect">
+        <script>
+            var select = document.getElementById("numberSelect");
+            let numbers = [3,4,5,10,20]
+            for(var i = 0; i<numbers.length; i++){
+                var opt = numbers[i];
+                var el = document.createElement("option");
+                el.textContent = opt;
+                el.value = opt
+                select.appendChild(el);
+            }
+        </script>   
+    </select>
+    <br>
+    <p id="p"></p>
+    <button id="btn">Submit</button>
+</form>
+
+<script>
+    var selected = document.getElementById("btn").addEventListener("click", submitForm);
+    var p = document.getElementById("p");
+    function submitForm(){
+        var getSelected = select.value
+        p.textContent = getSelected
+        
+    }
+</script>

@@ -31,7 +31,7 @@ const pageTwo = (req, res)=>{
     })
 }
 const pageThree = (req, res)=>{
-    res.render('about', {title:"Page Three"})
+    res.render('week4', {title:"Page Three"})
 }
 
 module.exports = {
