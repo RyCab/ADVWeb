@@ -70,6 +70,18 @@ app.get('/',(req,res)=>{
     })
 })
 
+//Set the view engine
+app.engine('hbs', exphbs.engine({
+    defaultLayout:'main',
+    extname:'.hbs',
+    helpers:{
+        createTable(){
+            
+        }
+
+    }
+}))
+
 //set up port for connection
 app.listen(3000, ()=>{
     console.log("Connected on port 3000")
