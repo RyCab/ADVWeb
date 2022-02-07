@@ -28,10 +28,17 @@ const pageTwo = (req, res)=>{
         address:"1 New England Tech BLVD",
         email:"Ryan@gmail.com",
         occupation:"NFTs"
+        
     })
 }
 const pageThree = (req, res)=>{
-    res.render('week4', {title:"Page Three"})
+    res.render('week4', {
+        title:"Page Three",
+        get:[
+            
+        ]
+        
+    })
 }
 
 module.exports = {
