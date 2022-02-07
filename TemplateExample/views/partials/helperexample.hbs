@@ -1,9 +1,79 @@
-<div class="Profile">
-    <h1>Name: {{name}}</h1>
-    <ul>
-        <li>Number: {{formatPhoneNumber phonenumber}}</li>
-        <li>Address: {{makeBold address}}</li>
-        <li>Email: {{formatEmail email}}</li>
-        <li>Occupation: {{upperCaseWord occupation}}</li>
-    </ul>
-</div>
+
+<form method="post" action="/index">
+    <label for="numbers">Select a number!</label>
+    
+    <select name="numbers" id="numberSelect">
+        <script>
+            var select = document.getElementById("numberSelect");
+            let numbers = [3,4,5,10,20]
+            for(var i = 0; i<numbers.length; i++){
+                var opt = numbers[i];
+                var el = document.createElement("option");
+                el.textContent = opt;
+                el.value = opt
+                select.appendChild(el);
+            }
+
+        </script>   
+    </select>
+    <label for="fname">First name:</label>
+    <input type="text" id="fname" name="fname"><br>
+    <br>
+    
+    <button id="btn">Submit</button>
+    
+</form>
+<p id="p"></p>
+
+<table>
+    <tbody>
+        <!--
+            <tr>
+                <td style='background-color:#a3bc34;'>A3BC34<br/><span typle='color:#ffffff;'>A3BC34</span></td>
+                <td style='background-color: #247422;'>247422<br/><span typle='color:#ffffff;'>247422</span></td>
+                <td style='background-color: #aabbcc;'>aabbcc<br/><span typle='color:#ffffff;'>aabbcc</span></td>
+            </tr>-->
+    <tbody>
+<table>
+
+<script>
+    var color = ((1<<24)*Math.random()|0).toString(16);
+    var selected = document.getElementById("btn").addEventListener("click", submitForm);
+    var p = document.getElementById("p");
+    function submitForm(){
+        var getSelected = select.value
+        p.textContent = getSelected
+        var num = parseInt(getSelected)
+        console.log(num)
+        var con = 0;
+        var data = {
+        'cond1' : 3,
+        'cond2' : 4,
+        'cond3' : 5,
+        'cond4' : 10,
+        'cond5' : 20
+        }
+        if(num == data.cond1){
+            con = data.cond1;
+        }
+        else if(num == data.cond2){
+            con = data.cond2;
+        }
+        else if(num == data.cond3){
+            con = data.cond3;
+        }
+        else if(num == data.cond4){
+            con = data.cond4;
+        }
+        else{
+            con = data.cond5;
+        }
+        
+        var final = parseInt(con)
+        console.log("final " + final)
+        {{getNumber final}}
+
+        return con
+    }
+
+</script>

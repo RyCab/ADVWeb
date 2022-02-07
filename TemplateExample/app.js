@@ -39,11 +39,33 @@ app.engine('hbs', exphbs.engine({
             if(word){
                 return word.toUpperCase()
             }
-        }
+        },
+        getNumber(num){
+            //let getNum = num
+            //if(getNum == 3){
+           //     console.log("Numbers: " + getNum)
+                
+           // }
+            //return getNum
 
+            //return new new hbs.registerHelper('getNumber', function(num, options) {
+             //   if(num === 3) {
+             //       console.log("number = 3")
+              //      return options.fn(this);
+               // }
+              //  return options.inverse(this);
+              //  }); 
+
+            if(num == 3) {
+                console.log("number = 3")
+                return num
+            }
+        }
 
     }
 }))
+
+
 
 app.set('view engine', 'hbs')
 
@@ -70,17 +92,7 @@ app.get('/',(req,res)=>{
     })
 })
 
-//Set the view engine
-app.engine('hbs', exphbs.engine({
-    defaultLayout:'main',
-    extname:'.hbs',
-    helpers:{
-        createTable(){
-            
-        }
 
-    }
-}))
 
 //set up port for connection
 app.listen(3000, ()=>{
